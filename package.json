@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/663695877/explore-ui/issues"
   },
-  "homepage": "https://github.com/663695877/explore-ui#readme"
+  "homepage": "https://github.com/663695877/explore-ui#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
 }
