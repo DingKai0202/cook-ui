@@ -32,7 +32,7 @@
 </head>
 <body>
 <div id="app">
-  <c-button icon="settings" icon-position="left">
+  <c-button icon="settings" icon-position="left" :loading="loading1" @click="loading1 = !loading1">
 		我爱js
 	</c-button>
 	<c-button icon-position="right" icon="settings">
@@ -41,7 +41,7 @@
 	<c-button icon="download">
 		下载
 	</c-button>
-	<c-button icon="loading"></c-button>
+	<c-button icon="loading" :loading="true">加载</c-button>
 </div>
 
 <script src="./src/app.js"></script>
