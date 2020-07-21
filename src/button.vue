@@ -13,8 +13,12 @@
 </template>
 
 <script>
-export default {
+	import Icon from './icon'
+	export default {
 		name: '',
+		components: {
+			'c-icon': Icon
+		},
 		props: {
 			icon: String,
 			loading: {
@@ -29,7 +33,7 @@ export default {
 				}
 			}
 		}
-}
+	}
 </script>
 
 <style lang="scss" scoped>
