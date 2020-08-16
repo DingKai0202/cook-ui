@@ -1,6 +1,6 @@
 {
   "name": "cook-ui",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Vue UI框架",
   "main": "dist/index.js",
   "scripts": {
