@@ -1,8 +1,8 @@
 {
-  "name": "Cola-ui",
-  "version": "0.0.1",
+  "name": "cook-ui",
+  "version": "0.0.12",
   "description": "Vue UI框架",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.1.2",
     "chai": "^4.2.0",
+    "eslint": "^7.5.0",
     "karma": "^5.1.0",
     "karma-chai": "^0.1.0",
     "karma-chai-spies": "^0.1.4",
