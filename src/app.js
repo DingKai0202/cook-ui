@@ -14,8 +14,15 @@ new Vue({
   el: '#app',
   data: {
     loading1: false
+  },
+  methods: {
+    inputChange(e) {
+      console.log(e.target.value);
+    }
   }
 })
+
+
 
 // import chai from 'chai'
 // import spies from 'chai-spies'
