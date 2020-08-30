@@ -32,22 +32,27 @@
 </head>
 <body>
 <div id="app">
-  <c-button icon="settings" icon-position="left" :loading="loading1" @click="loading1 = !loading1">
-		我爱js
-	</c-button>
-	<c-button icon-position="right" icon="settings">
-		你好
-	</c-button>
-	<c-button icon="download">
-		下载
-	</c-button>
-	<c-button icon="loading" :loading="true">加载</c-button>
-	<c-button-group>
-		<c-button icon="left">上一页</c-button>
-		<c-button>更多</c-button>
-	  <c-button icon="right" icon-position="right">下一页</c-button>
-	</c-button-group>
-	<div id="test"></div>
+  <c-input value="张三" disabled></c-input>
+  <c-input value="李四"></c-input>
+  <c-input value="王五" readonly></c-input>
+  <c-input value="王五" error="姓名不能少于两个字"></c-input>
+  <div style="margin: 20px;">
+    <c-button icon="settings" icon-position="left" :loading="loading1" @click="loading1 = !loading1">
+      我爱js
+    </c-button>
+    <c-button icon-position="right" icon="settings">
+      你好
+    </c-button>
+    <c-button icon="download">
+      下载
+    </c-button>
+    <c-button icon="loading" :loading="true">加载</c-button>
+    <c-button-group>
+      <c-button icon="left">上一页</c-button>
+      <c-button>更多</c-button>
+      <c-button icon="right" icon-position="right">下一页</c-button>
+    </c-button-group>
+	</div>
 </div>
 
 <script src="./src/app.js"></script>

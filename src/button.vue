@@ -13,27 +13,27 @@
 </template>
 
 <script>
-	import Icon from './icon'
-	export default {
-		name: '',
-		components: {
-			'c-icon': Icon
-		},
-		props: {
-			icon: String,
-			loading: {
-				type: Boolean,
-				default: false
-			},
-			iconPosition: {
-				type: String,
-				default: 'left',
-				validator(value) {
-					return value !== 'left' && value !== 'right' ? false : true
-				}
-			}
-		}
+import Icon from './icon'
+export default {
+  name: 'CookButton',
+  components: {
+	'c-icon': Icon
+  },
+  props: {
+	icon: String,
+	loading: {
+	  type: Boolean,
+	  default: false
+	},
+	iconPosition: {
+	  type: String,
+	  default: 'left',
+	  validator(value) {
+		return value !== 'left' && value !== 'right' ? false : true
+	  }
 	}
+  }
+}
 </script>
 
 <style lang="scss" scoped>

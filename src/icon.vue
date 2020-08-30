@@ -5,12 +5,13 @@
 </template>
 
 <script>
-  import './svg'
-  export default {
-    props: {
-      name: String
-    }
+import './svg'
+export default {
+  name: 'CookIcon',
+  props: {
+    name: String
   }
+}
 </script>
 
 <style lang="scss" scoped>
