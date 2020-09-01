@@ -32,11 +32,26 @@
 </head>
 <body>
 <div id="app">
+  <div style="border: 1px solid blue">
+    <c-row gutter="50">
+      <c-col gutter="50">1</c-col>
+      <c-col>2</c-col>
+      <c-col>3</c-col>
+    </c-row>
+    <c-row>
+      <c-col span="4" >1</c-col>
+      <c-col span="4" offset="2">2</c-col>
+      <c-col span="14">3</c-col>
+    </c-row>
+  </div>
+
   <c-input value="张三" disabled></c-input>
   <c-input value="李四"></c-input>
   <c-input value="王五" readonly></c-input>
   <c-input value="王五" error="姓名不能少于两个字"></c-input>
   <c-input value="赵柳" @change="inputChange"></c-input>
+  <c-input v-model="message"></c-input>
+  <p>{{message}}</p>
   <div style="margin: 20px;">
     <c-button icon="settings" icon-position="left" :loading="loading1" @click="loading1 = !loading1">
       我爱js

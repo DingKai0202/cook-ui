@@ -3,17 +3,24 @@ import Button from './button.vue'
 import Icon from './icon.vue'
 import ButtonGroup from './button-group.vue'
 import Input from './input.vue'
-import { expect, spy } from 'chai'
+import Row from './row.vue'
+import Col from './col.vue'
 
 Vue.component('c-button', Button)
 Vue.component('c-icon', Icon)
 Vue.component('c-button-group', ButtonGroup)
 Vue.component('c-input', Input)
+Vue.component('c-row', Row)
+Vue.component('c-col', Col)
 
 new Vue({
   el: '#app',
   data: {
-    loading1: false
+    loading1: false,
+    message: 'hi'
+  },
+  created() {
+
   },
   methods: {
     inputChange(e) {
