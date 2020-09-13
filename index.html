@@ -32,7 +32,7 @@
 </head>
 <body>
 <style>
-  .demoBox{
+  .demo{
     background: #ddd;
     border: 1px solid red;
     height: 50px;
@@ -40,10 +40,26 @@
 </style>
 <div id="app">
   <div>
-    <!-- <c-row gutter="20">
-      <c-col span="24" >1</c-col>
-      <c-col span="24" >11</c-col>
-    </c-row> -->
+    <c-row>
+      <c-col span="24" :ipad="{span: 12}" :narrow-pc="{span:8}">
+        <div class="demo">1</div>
+      </c-col>
+      <c-col span="24" :ipad="{span: 12}" :narrow-pc="{span:8}">
+        <div class="demo">2</div>
+      </c-col>
+      <c-col span="24" :ipad="{span: 12}" :narrow-pc="{span:8}">
+        <div class="demo">3</div>
+      </c-col>
+      <c-col span="24" :ipad="{span: 12}" :narrow-pc="{span:8}">
+        <div class="demo">4</div>
+      </c-col>
+      <c-col span="24" :ipad="{span: 12}" :narrow-pc="{span:8}">
+        <div class="demo">5</div>
+      </c-col>
+      <c-col span="24" :ipad="{span: 12}" :narrow-pc="{span:8}">
+        <div class="demo">6</div>
+      </c-col>
+    </c-row>
     <c-row class="topbar">
       <c-col class="demoBox" span="24" :ipad="{span: 2}">
         <c-row align="left">
