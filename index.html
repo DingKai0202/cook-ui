@@ -24,28 +24,71 @@
     }
   </style>
   <style>
-    .icon{
-      width: 1em;
-      height: 1em;
+    .box{
+      margin: 20px;
     }
+
   </style>
 </head>
 <body>
+<style>
+  .demoBox{
+    background: #ddd;
+    border: 1px solid red;
+    height: 50px;
+  }
+</style>
 <div id="app">
-  <div style="border: 1px solid blue">
-    <c-row gutter="50">
-      <c-col gutter="50">1</c-col>
-      <c-col>2</c-col>
-      <c-col>3</c-col>
+  <div>
+    <!-- <c-row gutter="20">
+      <c-col span="24" >1</c-col>
+      <c-col span="24" >11</c-col>
+    </c-row> -->
+    <c-row class="topbar">
+      <c-col class="demoBox" span="24" :ipad="{span: 2}">
+        <c-row align="left">
+          <c-col>
+            1
+          </c-col>
+          <c-col>
+            2
+          </c-col>
+          <c-col>
+            3
+          </c-col>
+          <c-col>
+            4
+          </c-col>
+        </c-row>
+      </c-col>
+      <c-col class="demoBox" span="24" :ipad="{span: 22}">
+        2
+      </c-col>
     </c-row>
-    <c-row>
+    <c-row class="log-and-search-and-qrcode">
+      <c-col class="demoBox" span="4">
+        1
+      </c-col>
+      <c-col class="demoBox" span="14">
+        2
+      </c-col>
+      <c-col class="demoBox" span="6">
+        2
+      </c-col>
+    </c-row>
+    <!-- <c-row>
       <c-col span="4" >1</c-col>
       <c-col span="4" offset="2">2</c-col>
       <c-col span="14">3</c-col>
-    </c-row>
+    </c-row> -->
   </div>
 
-  <c-input value="张三" disabled></c-input>
+  <div style="display: flex;background: hotpink; width: 400px;">
+    <div style="width: 400px;">你好</div>
+    <div style="width: 400px;">县政府</div>
+  </div>
+
+  <!-- <c-input value="张三" disabled></c-input>
   <c-input value="李四"></c-input>
   <c-input value="王五" readonly></c-input>
   <c-input value="王五" error="姓名不能少于两个字"></c-input>
@@ -67,8 +110,8 @@
       <c-button icon="left">上一页</c-button>
       <c-button>更多</c-button>
       <c-button icon="right" icon-position="right">下一页</c-button>
-    </c-button-group>
-	</div>
+    </c-button-group> -->
+	<!-- </div> -->
 </div>
 
 <script src="./src/app.js"></script>
