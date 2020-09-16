@@ -71,7 +71,7 @@ export default {
         ...setClass({span, offset}),
         ...setClass(ipad,  'ipad-'),
         ...setClass(narrowPc,  'narrow-pc-'),
-        ...setClass(pc,  'pc'),
+        ...setClass(pc,  'pc-'),
         ...setClass(widePc,  'wide-pc-'),
       ]
     },
