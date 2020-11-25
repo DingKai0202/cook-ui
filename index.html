@@ -39,14 +39,17 @@
   }
 </style>
 <div id="app">
-<c-layout style="height: 100vh;">
-  <c-sider class="d">Sider</c-sider>
-  <c-layout>
-      <c-header class="demo">Header</c-header>
-      <c-content class="demo">Content</c-content>
-      <c-footer class="demo">Footer</c-footer>
+  <button @cli></button>
+  <c-layout style="height: 100vh;">
+    <c-sider class="d">Sider</c-sider>
+    <c-layout>
+        <c-header class="demo">Header</c-header>
+        <c-content class="demo">Content
+          <button @click="showToast()">Show Toast</button>
+        </c-content>
+        <c-footer class="demo">Footer</c-footer>
+    </c-layout>
   </c-layout>
-</c-layout>
 
 </div>
 

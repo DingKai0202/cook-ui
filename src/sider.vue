@@ -34,6 +34,7 @@ export default {
     transition: transform .3s;
   }
   .slide-enter, .slide-leave-to {
+    // 这里有缺陷，需要用户自己设置很具sidebar宽度设置margin-left
     margin-left: -200px;
   }
 </style>
