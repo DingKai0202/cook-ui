@@ -1,8 +1,8 @@
 <template>
-  <div class="toast" :class="toastClasses">
+  <div class="toast" ref="wrapper" :class="toastClasses">
     <slot></slot>
+    <div class="line" ref="line"></div>
     <span class="close" v-if="closeButton" @click="onClickClose">
-      <div class="line"></div>
       {{closeButton.text}}
     </span>
   </div>
@@ -42,11 +42,8 @@ export default {
     console.log(this.closeButton, "btn");
   },
   mounted () {
-      if (this.autoClose) {
-        setTimeout(() => {
-          this.close()
-        }, this.autoCloseDelay * 1000)
-      }
+    this.execAutoClose()
+    this.updateStyles()
   },
   computed: {
     toastClasses() {
@@ -56,6 +53,19 @@ export default {
     }
   },
   methods: {
+    updateStyles () {
+      this.$nextTick(() => {
+        this.$refs.line.style.height = 
+          `${this.$refs.wrapper.getBoundingClientRect().height}px`
+      })
+    },
+    execAutoClose (){
+      if (this.autoClose) {
+        setTimeout(() => {
+          this.close()
+        }, this.autoCloseDelay * 1000)
+      }
+    },
     close() {
       this.$el.remove()
       this.$destroy()
@@ -105,14 +115,12 @@ export default {
       }
       .close {
         padding-left: 16px;
-        position: relative;
+        flex-shrink: 0;
       }
       .line{
         height: 100%;
         border-left: 1px solid #666;
         margin-left: 16px;
-        position: absolute;
-        left: -8px;
       }
 
   }
