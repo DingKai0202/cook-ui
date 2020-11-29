@@ -37,11 +37,24 @@ new Vue({
    
   },
   methods: {
-    inputChange(e) {
-      console.log(e.target.value);
-    },
+    // inputChange(e) {
+    //   console.log(e.target.value);
+    // },
     showToast() {
-      this.$toast("我是toast")
+      this.$toast("我是toast国库鬼鬼哦豁【铝合金撒大大说按时玩儿翁偶还就弄里扩女女女女女女女女女女女女女女贫困【贫困【贫困【贫困", 
+      {
+        
+        closeButton: {
+          text: "知道了",
+          callback (toast) {
+            toast.log()
+            console.log("用户点击知道了");
+          }
+        },
+        position: 'middle',
+        autoClose: false,
+        autoCloseDelay: 10
+      })
     }
   }
 })
