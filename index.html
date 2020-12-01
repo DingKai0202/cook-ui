@@ -46,6 +46,34 @@
         <c-header class="demo">Header</c-header>
         <c-content class="demo">Content
           <button @click="showToast()">Show Toast</button>
+          <c-tabs :selected.sync="selectedTab">
+            <c-tabs-head>
+              <template slot="actions">
+                <button>设置</button>
+              </template>
+              <c-tabs-item name="woman">
+                <c-icon name="settings"></c-icon>
+                美女
+              </c-tabs-item>
+              <c-tabs-item name="sport">
+                体育
+              </c-tabs-item>
+              <c-tabs-item name="finance" disabled>
+                财经
+              </c-tabs-item>
+            </c-tabs-head>
+            <c-tabs-body>
+              <c-tabs-pane name="woman">
+                美女咨询内容
+              </c-tabs-pane>
+              <c-tabs-pane name="sport">
+                体育资讯内容
+              </c-tabs-pane>
+              <c-tabs-pane name="finance">
+                财经资讯内容
+              </c-tabs-pane>
+            </c-tabs-body>
+          </c-tabs>
         </c-content>
         <c-footer class="demo">Footer</c-footer>
     </c-layout>

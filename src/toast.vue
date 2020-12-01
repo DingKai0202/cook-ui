@@ -13,12 +13,11 @@ export default {
   name: 'CookToast',
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 2
+      type: [Boolean, Number],
+      default: true,
+      validator (value) {
+        return value === false || typeof value === 'number'
+      }
     },
     closeButton: {
       type: Object,
@@ -63,15 +62,13 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close()
-        }, this.autoCloseDelay * 1000)
+        }, this.autoClose * 1000)
       }
     },
     close() {
       this.$el.remove()
+      this.$emit('close')
       this.$destroy()
-    },
-    log () {
-      console.log("测试");
     },
     onClickClose() {
       this.close()
