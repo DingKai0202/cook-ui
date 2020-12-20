@@ -39,11 +39,35 @@
   }
 </style>
 <div id="app">
-  <button @cli></button>
+  
   <c-layout style="height: 100vh;">
     <c-sider class="d">Sider</c-sider>
     <c-layout>
         <c-header class="demo">Header</c-header>
+                <c-popover>
+                  <template slot="content">
+                    <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
+                  </template>
+                  <button>点我</button>
+                </c-popover >
+                <c-popover position="bottom" trigger="hover">
+                  <template slot="content">
+                    <div>popover内容</div>
+                  </template>
+                  <button>点我</button>
+                </c-popover>
+                <c-popover position="left">
+                  <template slot="content">
+                    <div>popover内容</div>
+                  </template>
+                  <button>点我</button>
+                </c-popover>
+                <c-popover position="right" trigger="hover">
+                  <template slot="content">
+                    <div>popover内容</div>
+                  </template>
+                  <button>点我</button>
+                </c-popover>
         <c-content class="demo">Content
           <button @click="showToast()">Show Toast</button>
           <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
@@ -58,7 +82,7 @@
               <c-tabs-item name="sport">
                 体育
               </c-tabs-item>
-              <c-tabs-item name="finance" disabled>
+              <c-tabs-item name="finance">
                 财经
               </c-tabs-item>
             </c-tabs-head>
@@ -68,9 +92,10 @@
               </c-tabs-pane>
               <c-tabs-pane name="sport">
                 体育资讯内容
+
               </c-tabs-pane>
               <c-tabs-pane name="finance">
-                财经资讯内容
+                财经资讯内容 
               </c-tabs-pane>
             </c-tabs-body>
           </c-tabs>
@@ -78,7 +103,18 @@
         <c-footer class="demo">Footer</c-footer>
     </c-layout>
   </c-layout>
-
+  <c-popover>
+                  <template slot="content">
+                    <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
+                  </template>
+                  <button>点我</button>
+                </c-popover>
+                <c-popover position="right" trigger="hover">
+                  <template slot="content">
+                    <div>popover内容</div>
+                  </template>
+                  <button>点我</button>
+                </c-popover>
 </div>
 
 <script src="./src/app.js"></script>

@@ -17,6 +17,7 @@ import TabsHead from './tabs-head.vue'
 import TabsBody from './tabs-body.vue'
 import TabsPane from './tabs-pane.vue'
 import TabsItem from './tabs-item.vue'
+import Popover from './popover.vue'
 
 Vue.component('c-button', Button)
 Vue.component('c-icon', Icon)
@@ -35,6 +36,7 @@ Vue.component('c-tabs-head', TabsHead)
 Vue.component('c-tabs-body', TabsBody)
 Vue.component('c-tabs-pane', TabsPane)
 Vue.component('c-tabs-item', TabsItem)
+Vue.component('c-popover', Popover)
 Vue.use(plugin)
 
 new Vue({
@@ -42,10 +44,10 @@ new Vue({
   data: {
     loading1: false,
     message: 'hi',
-    selectedTab: 'sport'
+    selectedTab: 'woman'
   },
   created() {
-   
+  
   },
   methods: {
     yyy() {

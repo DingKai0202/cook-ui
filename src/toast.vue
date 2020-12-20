@@ -1,10 +1,14 @@
 <template>
-  <div class="toast" ref="wrapper" :class="toastClasses">
-    <slot></slot>
-    <div class="line" ref="line"></div>
-    <span class="close" v-if="closeButton" @click="onClickClose">
-      {{closeButton.text}}
-    </span>
+  <div class="wrapper" ref="wrapper" :class="toastClasses">
+    <div class="toast" ref="toast">
+      <!-- <slot></slot> -->
+      <div class="line" ref="line"></div>
+      <span class="close" v-if="closeButton" @click="onClickClose">
+        {{closeButton.text}}
+      </span>
+    </div>
+    
+
   </div>
 </template>
 
@@ -13,11 +17,17 @@ export default {
   name: 'CookToast',
   props: {
     autoClose: {
-      type: [Boolean, Number],
-      default: true,
-      validator (value) {
-        return value === false || typeof value === 'number'
-      }
+      type: Boolean,
+      default: true
+      // type: [Boolean, Number],
+      // default: 5,
+      // validator (value) {
+      //   return value === false || typeof value === 'number'
+      // }
+    },
+    autoCloseDelay: {
+      type: Number,
+      default: 5
     },
     closeButton: {
       type: Object,
@@ -38,11 +48,11 @@ export default {
     }
   },
   created () {
-    console.log(this.closeButton, "btn");
+    console.log(this.closeButton, "btn")
   },
   mounted () {
-    this.execAutoClose()
     this.updateStyles()
+    this.execAutoClose()
   },
   computed: {
     toastClasses() {
@@ -60,9 +70,10 @@ export default {
     },
     execAutoClose (){
       if (this.autoClose) {
+        console.log('setTimeout');
         setTimeout(() => {
           this.close()
-        }, this.autoClose * 1000)
+        }, this.autoCloseDelay * 1000)
       }
     },
     close() {

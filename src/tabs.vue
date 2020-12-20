@@ -33,7 +33,20 @@ export default {
     }
   },
   mounted () {
-    this.eventBus.$emit('update:selected', this.selected)
+    if (this.$children.length === 0) {
+      console.warn('tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件')
+    }
+
+    this.$children.forEach((vm) => {
+      if (vm.$options.name === 'CookTabsHead') {
+        vm.$children.forEach((childVm) => {
+          if (childVm.$options.name === 'CookTabsItem' && childVm.name === this.selected) {
+            console.log(childVm, 'vm');
+            this.eventBus.$emit('update:selected', this.selected, childVm)
+          }
+        })
+      }
+    })
   }
 }
 </script>

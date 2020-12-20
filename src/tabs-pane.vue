@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'TabsPane',
+  name: 'CookTabsPane',
   inject: ['eventBus'],
   data () {
     return {
@@ -27,9 +27,11 @@ export default {
     }
   },
   created() {
-    this.eventBus.$on('update:selected', (name) => {
-      this.active = name === this.name
-    })
+    if (this.eventBus) {
+      this.eventBus.$on('update:selected', (name) => {
+        this.active = name === this.name
+      })
+    }
   }
 }
 </script>
