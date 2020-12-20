@@ -103,9 +103,10 @@
         <c-footer class="demo">Footer</c-footer>
     </c-layout>
   </c-layout>
-  <c-popover>
-                  <template slot="content">
+  <c-popover >
+                  <template slot="content" slot-scope="{close}">
                     <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
+                    <c-button @click="close">关闭</c-button>
                   </template>
                   <button>点我</button>
                 </c-popover>
