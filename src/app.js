@@ -18,6 +18,9 @@ import TabsBody from './tabs-body.vue'
 import TabsPane from './tabs-pane.vue'
 import TabsItem from './tabs-item.vue'
 import Popover from './popover.vue'
+import Collapse from './collapse.vue'
+import CollapseItem from './collapse-item.vue'
+import Cascader from './cascader.vue'
 
 Vue.component('c-button', Button)
 Vue.component('c-icon', Icon)
@@ -37,6 +40,9 @@ Vue.component('c-tabs-body', TabsBody)
 Vue.component('c-tabs-pane', TabsPane)
 Vue.component('c-tabs-item', TabsItem)
 Vue.component('c-popover', Popover)
+Vue.component('c-collapse', Collapse)
+Vue.component('c-collapse-item', CollapseItem)
+Vue.component('c-cascader', Cascader)
 Vue.use(plugin)
 
 new Vue({
@@ -44,7 +50,59 @@ new Vue({
   data: {
     loading1: false,
     message: 'hi',
-    selectedTab: 'woman'
+    selectedTab: 'woman',
+    // selected: ['2'],
+    selected: [],
+    source: [
+      {
+        name: '浙江',
+        children: [
+          {
+            name: '杭州',
+            children: [
+              {name: '上城'},
+              {name: '下城'},
+              {name: '江干'}
+            ]
+          },
+          {
+            name: '嘉兴',
+            children: [
+              {name: '南湖'},
+              {name: '秀洲'},
+              {name: '嘉善'}
+            ]
+          },
+        ]
+      },
+      {
+        name: '福建',
+        children: [
+          {
+            name: '福州',
+            children: [
+              {name: '鼓楼'},
+              {name: '台江'},
+            ]
+          },
+        ]
+      },
+            {
+        name: '福建2',
+        children: [
+          {
+            name: '福州2',
+            children: [
+              {name: '鼓楼'},
+              {name: '台江'},
+              {name: '苍山'},
+              {name: '鼓楼'},
+              {name: '台江'},
+            ]
+          },
+        ]
+      }
+    ]
   },
   created() {
   

@@ -41,7 +41,8 @@
     "sass": "^1.26.9",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.7.1"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"

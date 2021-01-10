@@ -108,7 +108,7 @@
                     <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
                     <c-button @click="close">关闭</c-button>
                   </template>
-                  <button>点我</button>
+                  <c-button>点我</c-button>
                 </c-popover>
                 <c-popover position="right" trigger="hover">
                   <template slot="content">
@@ -116,6 +116,14 @@
                   </template>
                   <button>点我</button>
                 </c-popover>
+  <!-- <c-collapse :selected.sync="selected">
+    <c-collapse-item title="标题1" name="1">内容1</c-collapse-item>
+    <c-collapse-item title="标题2" name="2">内容2</c-collapse-item>
+    <c-collapse-item title="标题3" name="3">内容3</c-collapse-item>
+    {{selected}}
+  </c-collapse> -->
+  <c-cascader :source="source" :selected="selected" @update:selected = "selected = $event"></c-cascader>
+  <!-- <p>{{selected}}</p> -->
 </div>
 
 <script src="./src/app.js"></script>
