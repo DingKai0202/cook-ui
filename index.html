@@ -70,7 +70,7 @@
                 </c-popover>
         <c-content class="demo">Content
           <button @click="showToast()">Show Toast</button>
-          <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
+          <!-- <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
             <c-tabs-head>
               <template slot="actions">
                 <button>设置</button>
@@ -98,12 +98,12 @@
                 财经资讯内容 
               </c-tabs-pane>
             </c-tabs-body>
-          </c-tabs>
+          </c-tabs> -->
         </c-content>
         <c-footer class="demo">Footer</c-footer>
     </c-layout>
   </c-layout>
-  <c-popover >
+  <!-- <c-popover >
                   <template slot="content" slot-scope="{close}">
                     <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
                     <c-button @click="close">关闭</c-button>
@@ -115,15 +115,27 @@
                     <div>popover内容</div>
                   </template>
                   <button>点我</button>
-                </c-popover>
+                </c-popover> -->
   <!-- <c-collapse :selected.sync="selected">
     <c-collapse-item title="标题1" name="1">内容1</c-collapse-item>
     <c-collapse-item title="标题2" name="2">内容2</c-collapse-item>
     <c-collapse-item title="标题3" name="3">内容3</c-collapse-item>
     {{selected}}
   </c-collapse> -->
-  <c-cascader :source="source" :selected="selected" @update:selected = "selected = $event"></c-cascader>
+  <!-- <c-cascader :source="source" @update:selected = "selectedItem"></c-cascader> -->
+  <c-slides :selected.sync="selected">
+    <c-slides-item  name="1">
+      <div class="box">1</div>
+    </c-slides-item>
+    <c-slides-item  name="2">
+      <div class="box">2</div>
+    </c-slides-item>
+    <c-slides-item  name="3">
+      <div class="box">3</div>
+    </c-slides-item>
+  </c-slides>
   <!-- <p>{{selected}}</p> -->
+
 </div>
 
 <script src="./src/app.js"></script>

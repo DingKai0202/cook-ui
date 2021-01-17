@@ -21,6 +21,8 @@ import Popover from './popover.vue'
 import Collapse from './collapse.vue'
 import CollapseItem from './collapse-item.vue'
 import Cascader from './cascader.vue'
+import Slides from './slides.vue'
+import SlidesItem from './slides-item.vue'
 
 Vue.component('c-button', Button)
 Vue.component('c-icon', Icon)
@@ -43,6 +45,8 @@ Vue.component('c-popover', Popover)
 Vue.component('c-collapse', Collapse)
 Vue.component('c-collapse-item', CollapseItem)
 Vue.component('c-cascader', Cascader)
+Vue.component('c-slides', Slides)
+Vue.component('c-slides-item', SlidesItem)
 Vue.use(plugin)
 
 new Vue({
@@ -52,62 +56,187 @@ new Vue({
     message: 'hi',
     selectedTab: 'woman',
     // selected: ['2'],
-    selected: [],
+    // selected: [],
     source: [
       {
         name: '浙江',
+        label: '1',
         children: [
           {
             name: '杭州',
+            label: '2',
             children: [
-              {name: '上城'},
-              {name: '下城'},
-              {name: '江干'}
+              // {name: '上城',label: '3',},
+              // {name: '下城',label: '4',},
+              // {name: '江干',label: '5',}
             ]
           },
           {
             name: '嘉兴',
+            label: '6',
             children: [
-              {name: '南湖'},
-              {name: '秀洲'},
-              {name: '嘉善'}
+              {name: '南湖',label: '7',},
+              {name: '秀洲',label: '8',},
+              {name: '嘉善',label: '9',}
             ]
           },
         ]
       },
       {
         name: '福建',
+        label: '6',
         children: [
           {
             name: '福州',
+            label: '6',
             children: [
-              {name: '鼓楼'},
-              {name: '台江'},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
             ]
           },
         ]
       },
             {
         name: '福建2',
+        label: '1',
         children: [
           {
             name: '福州2',
+            label: '1',
             children: [
-              {name: '鼓楼'},
-              {name: '台江'},
-              {name: '苍山'},
-              {name: '鼓楼'},
-              {name: '台江'},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
+              {name: '苍山',label: '1',},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
+              {name: '苍山',label: '1',},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
+              {name: '苍山',label: '1',},
+              {name: '鼓楼',label: '1',},
+              {name: '台江',label: '1',},
             ]
           },
         ]
-      }
-    ]
+      },
+      // {
+      //   name: '浙江',
+      //   children: [
+      //     {
+      //       name: '杭州',
+      //       children: [
+      //         {name: '上城'},
+      //         {name: '下城'},
+      //         {name: '江干'}
+      //       ]
+      //     },
+      //     {
+      //       name: '嘉兴',
+      //       children: [
+      //         {name: '南湖'},
+      //         {name: '秀洲'},
+      //         {name: '嘉善'}
+      //       ]
+      //     },
+      //   ]
+      // },
+      // {
+      //   name: '福建',
+      //   children: [
+      //     {
+      //       name: '福州',
+      //       children: [
+      //         {name: '鼓楼'},
+      //         {name: '台江'},
+      //       ]
+      //     },
+      //   ]
+      // },
+      //       {
+      //   name: '福建2',
+      //   children: [
+      //     {
+      //       name: '福州2',
+      //       children: [
+      //         {name: '鼓楼'},
+      //         {name: '台江'},
+      //         {name: '苍山'},
+      //         {name: '鼓楼'},
+      //         {name: '台江'},
+      //       ]
+      //     },
+      //   ]
+      // },
+      // {
+      //   name: '浙江',
+      //   children: [
+      //     {
+      //       name: '杭州',
+      //       children: [
+      //         {name: '上城'},
+      //         {name: '下城'},
+      //         {name: '江干'}
+      //       ]
+      //     },
+      //     {
+      //       name: '嘉兴',
+      //       children: [
+      //         {name: '南湖'},
+      //         {name: '秀洲'},
+      //         {name: '嘉善'}
+      //       ]
+      //     },
+      //   ]
+      // },
+      // {
+      //   name: '福建',
+      //   children: [
+      //     {
+      //       name: '福州',
+      //       children: [
+      //         {name: '鼓楼'},
+      //         {name: '台江'},
+      //       ]
+      //     },
+      //   ]
+      // },
+      //       {
+      //   name: '福建2',
+      //   children: [
+      //     {
+      //       name: '福州2',
+      //       children: [
+      //         {name: '鼓楼'},
+      //         {name: '台江'},
+      //         {name: '苍山'},
+      //         {name: '鼓楼'},
+      //         {name: '台江'},
+      //       ]
+      //     },
+      //   ]
+      // }
+    ],
+    selected: undefined
   },
   created() {
-  
+    // let n = 1
+    // setInterval(() => {
+    //   if (n === 4) {
+    //     n = 1
+    //   }
+    //   this.selected = n.toString()
+    //   n++
+    // }, 2000)
   },
   methods: {
+    selectedItem(items) {
+      console.log(items);
+      this.selected = items
+    },
     yyy() {
       console.log('yyy');
     },
