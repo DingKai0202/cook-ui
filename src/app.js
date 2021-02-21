@@ -23,6 +23,8 @@ import CollapseItem from './collapse-item.vue'
 import Cascader from './cascader.vue'
 import Slides from './slides.vue'
 import SlidesItem from './slides-item.vue'
+import Pager from './pagination/pager.vue'
+import Table from './table/table.vue'
 
 Vue.component('c-button', Button)
 Vue.component('c-icon', Icon)
@@ -47,6 +49,8 @@ Vue.component('c-collapse-item', CollapseItem)
 Vue.component('c-cascader', Cascader)
 Vue.component('c-slides', Slides)
 Vue.component('c-slides-item', SlidesItem)
+Vue.component('c-pager', Pager)
+Vue.component('c-table', Table)
 Vue.use(plugin)
 
 new Vue({
@@ -55,6 +59,7 @@ new Vue({
     loading1: false,
     message: 'hi',
     selectedTab: 'woman',
+    currentPage: 1,
     // selected: ['2'],
     // selected: [],
     source: [
@@ -220,7 +225,27 @@ new Vue({
       //   ]
       // }
     ],
-    selected: undefined
+    selected: undefined,
+    columns: [
+      {text: '姓名', field: 'name', width: 400},
+      {text: '分数', field: 'score'}
+    ],
+    dataSource: [
+      {id: 1, name: '防范', score: 100, description: 'xxx xxx'},
+      {id: 2, name: '圆圆', score: 99, description: 'yyy yyy'},
+      {id: 3, name: '防范', score: 100},
+      {id: 4, name: '圆圆', score: 99},
+      {id: 5, name: '防范', score: 100},
+      {id: 6, name: '圆圆', score: 99},
+      {id: 7, name: '防范', score: 100},
+      {id: 8, name: '圆圆', score: 99}
+    ],
+    selectedTable: [],
+    orderBy: {
+      score: 'true',
+      name: 'up'
+    },
+    loading: false
   },
   created() {
     // let n = 1
@@ -233,6 +258,15 @@ new Vue({
     // }, 2000)
   },
   methods: {
+    xs(item, s) {
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 1500)
+      console.log('年度');
+      console.log(item);
+      console.log(s);
+    },
     selectedItem(items) {
       console.log(items);
       this.selected = items
@@ -257,6 +291,11 @@ new Vue({
         position: 'middle',
         autoClose: 5,
       })
+    },
+    xx(object) {
+      console.log('object你好');
+      let {selected, item, index} = object
+      console.log(index, 'asdads');
     }
   }
 })

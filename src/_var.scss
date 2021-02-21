@@ -10,10 +10,20 @@ $button-height: 32px;
 $button-bg: white;
 $button-active-bg: #eee;
 $color: #333;
+$light-color: #666;
 $font-size: 14px;
 $input-height: 32px;
 $red: #F1453D;
 $grey: #eee;
+$blue: #4a90e2;
+
 .box-shadow {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@mixin spin {
+  animation: spin 2s infinite linear;
 }
