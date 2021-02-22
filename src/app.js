@@ -25,6 +25,9 @@ import Slides from './slides.vue'
 import SlidesItem from './slides-item.vue'
 import Pager from './pagination/pager.vue'
 import Table from './table/table.vue'
+import Nav from './nav/nav.vue'
+import NavItem from './nav/nav-item.vue'
+import SubNav from './nav/sub-nav.vue'
 
 Vue.component('c-button', Button)
 Vue.component('c-icon', Icon)
@@ -51,6 +54,9 @@ Vue.component('c-slides', Slides)
 Vue.component('c-slides-item', SlidesItem)
 Vue.component('c-pager', Pager)
 Vue.component('c-table', Table)
+Vue.component('c-nav', Nav)
+Vue.component('c-nav-item', NavItem)
+Vue.component('c-sub-nav', SubNav)
 Vue.use(plugin)
 
 new Vue({
@@ -225,7 +231,7 @@ new Vue({
       //   ]
       // }
     ],
-    selected: undefined,
+    selected: "home",
     columns: [
       {text: '姓名', field: 'name', width: 400},
       {text: '分数', field: 'score'}

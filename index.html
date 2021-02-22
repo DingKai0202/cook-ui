@@ -148,6 +148,25 @@
   </c-slides> -->
   <!-- <p>{{selected}}</p> -->
   <div>
+    <c-nav :selected.sync="selected">
+      <c-nav-item name="home">首页</c-nav-item>
+      <c-sub-nav>
+        <template slot="title">关于</template>
+        <c-nav-item name="culture">企业文化</c-nav-item>
+        <c-nav-item name="developers">开发团队</c-nav-item>
+        <c-nav-item name="contacts">联系电话</c-nav-item>
+        <c-sub-nav>
+          <template slot="title">联系方式</template>
+          <c-nav-item name="wechat">微信</c-nav-item>
+          <c-nav-item name="qq">QQ</c-nav-item>
+          <c-nav-item name="phone">手机</c-nav-item>
+        </c-sub-nav>
+      </c-sub-nav>
+      <c-nav-item name="about">关于</c-nav-item>
+      <c-nav-item name="fire">招聘</c-nav-item>
+    </c-nav>
+  </div>
+  <!-- <div>
     {{selectedTable}}
     <div style="margin: 20px;">
       <c-table 
@@ -166,7 +185,7 @@
       </c-table>
     </div>
     <c-pager :total-page="14" :current-page.sync="currentPage"></c-pager>
-  </div>
+  </div> -->
 </div>
 
 <script src="./src/app.js"></script>
