@@ -1,25 +1,99 @@
 <template>
-  <div class="c-sub-nav">
-    <span @click="onClick">
+  <div class="c-sub-nav" :class="{active, vertical}" v-click-outside="close">
+    <span class="c-sub-nav-label" @click="onClick">
       <slot name="title"></slot>
+      <span class="c-sub-nav-icon c-sub-nav-open" v-if="open">
+        <c-icon class="left" name="right"></c-icon>
+      </span>
+      <span class="c-sub-nav-icon c-sub-nav-close" v-if="!open">
+        <c-icon name="right"></c-icon>
+      </span>
     </span>
-    <div v-show="open" class="c-sub-nav-popover">
-      <slot></slot>
-    </div>
+    <template v-if="vertical">
+      <transition @enter="enter" @leave="leave"
+        @after-leave="afterLeave"
+        @after-enter="afterEnter"
+        >
+        <div class="c-sub-nav-popover" :class="{vertical}" v-show="open">
+          <slot></slot>
+        </div>
+      </transition>
+    </template>
+    <template v-else>
+      <div class="c-sub-nav-popover" v-show="open">
+        <slot></slot>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
+import ClickOutside from '../click-outside'
+import CIcon from '../icon'
 export default {
   name: 'CookSubNav',
-  data() {
+  directives: {
+    ClickOutside
+  },
+  inject: ['root', 'vertical'],
+  components: {
+    CIcon
+  },
+  data () {
     return {
       open: false
     }
   },
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    active () {
+      console.log(this.name);
+      return this.root.namePath.indexOf(this.name) >= 0 ? true : false
+    }
+  },
   methods: {
+    afterEnter (el) {
+      el.style.height = 'auto'
+    },
+    enter (el, done) {
+      let { height } = el.getBoundingClientRect()
+      el.style.height = 0
+      el.getBoundingClientRect()
+      el.style.height = `${height}px`
+      el.addEventListener('transitionend', () => {
+        done()
+      })
+    },
+    leave: function (el, done) {
+      let {height} = el.getBoundingClientRect()
+      el.style.height = `${height}px`
+      el.getBoundingClientRect()
+      el.style.height = 0
+      el.addEventListener('transitionend', () => {
+        done()
+      })
+    },
+    afterLeave: function (el) {
+      el.style.height = 'auto'
+    },
     onClick () {
       this.open = !this.open
+    },
+    close() {
+      this.open = false
+    },
+    updateNamePath () {
+      this.root.namePath.unshift(this.name)
+      if (this.$parent.updateNamePath) {
+        this.$parent.updateNamePath()
+      } else {
+        // this.root.namePath = []
+      }
     }
   }
 }

@@ -24,7 +24,8 @@ export default {
   },
   methods: {
     onClick() {
-        console.log(this.name);
+      this.root.namePath = []
+      this.$parent.updateNamePath && this.$parent.updateNamePath()
       this.$emit('add:selected', this.name)
     }
   }
@@ -32,10 +33,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../_var.scss";
   .c-nav-item {
     padding: 10px 20px;
+    position: relative;
+    &:not(.vertical) {
+      &.selected {
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom: 2px solid #4a90e2;
+            width: 100%;
+        }
+      }
+    }
+    &.vertical {
+      &.selected {
+        color: #4a90e2;
+        background: $grey;
+      }
+    }
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .c-sub-nav .c-nav-item:not(.vertical) {
+    // color: $light-color;
     &.selected {
-      background: red;
+      background: $grey;
+      color: #4a90e2;
+      &::after {
+        display: none;
+      }
     }
   }
 </style>

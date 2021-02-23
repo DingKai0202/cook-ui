@@ -148,14 +148,14 @@
   </c-slides> -->
   <!-- <p>{{selected}}</p> -->
   <div>
-    <c-nav :selected.sync="selected">
+    <c-nav :selected.sync="selected" vertical :width="150">
       <c-nav-item name="home">首页</c-nav-item>
-      <c-sub-nav>
+      <c-sub-nav name="asda">
         <template slot="title">关于</template>
         <c-nav-item name="culture">企业文化</c-nav-item>
         <c-nav-item name="developers">开发团队</c-nav-item>
         <c-nav-item name="contacts">联系电话</c-nav-item>
-        <c-sub-nav>
+        <c-sub-nav name="asd">
           <template slot="title">联系方式</template>
           <c-nav-item name="wechat">微信</c-nav-item>
           <c-nav-item name="qq">QQ</c-nav-item>
