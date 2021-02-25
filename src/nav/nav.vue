@@ -1,6 +1,5 @@
 <template>
   <div class="c-nav" :class="{vertical}" ref="nav">
-      {{this.namePath}}
     <slot></slot>
   </div>
 </template>

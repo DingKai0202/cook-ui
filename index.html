@@ -81,6 +81,7 @@
             
           
           <button @click="showToast()">Show Toast</button>
+          
           <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
             <c-tabs-head>
               <template slot="actions">
@@ -147,6 +148,36 @@
     </c-slides-item>
   </c-slides> -->
   <!-- <p>{{selected}}</p> -->
+  <div>
+    <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
+      <c-tabs-head>
+        <template slot="actions">
+          <button>设置</button>
+        </template>
+        <c-tabs-item name="woman">
+          <c-icon name="settings"></c-icon>
+          美女
+        </c-tabs-item>
+        <c-tabs-item name="sport">
+          体育
+        </c-tabs-item>
+        <c-tabs-item name="finance">
+          财经
+        </c-tabs-item>
+      </c-tabs-head>
+      <c-tabs-body>
+        <c-tabs-content name="woman">
+          美女咨询内容
+        </c-tabs-content>
+        <c-tabs-content name="sport">
+          体育资讯内容
+        </c-tabs-content>
+        <c-tabs-content name="finance">
+          财经资讯内容 
+        </c-tabs-content>
+      </c-tabs-content>
+    </c-tabs>
+  </div>
   <div>
     <c-nav :selected.sync="selected" :vertical="true" style="width:200px">
         <c-nav-item name="home">首页</c-nav-item>

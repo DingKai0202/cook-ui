@@ -12,11 +12,11 @@ import Content from './content.vue'
 import Footer from './footer.vue'
 import Toast from './toast.vue'
 import plugin from './plugin'
-import Tabs from './tabs.vue'
-import TabsHead from './tabs-head.vue'
-import TabsBody from './tabs-body.vue'
-import TabsPane from './tabs-pane.vue'
-import TabsItem from './tabs-item.vue'
+import Tabs from './tab/tabs.vue'
+import TabsHead from './tab/tabs-head.vue'
+import TabsBody from './tab/tabs-body.vue'
+import TabsContent from './tab/tabs-content.vue'
+import TabsTitle from './tab/tabs-title.vue'
 import Popover from './popover.vue'
 import Collapse from './collapse.vue'
 import CollapseItem from './collapse-item.vue'
@@ -44,8 +44,8 @@ Vue.component('c-toast', Toast)
 Vue.component('c-tabs', Tabs)
 Vue.component('c-tabs-head', TabsHead)
 Vue.component('c-tabs-body', TabsBody)
-Vue.component('c-tabs-pane', TabsPane)
-Vue.component('c-tabs-item', TabsItem)
+Vue.component('c-tabs-content', TabsContent)
+Vue.component('c-tabs-item', TabsTitle)
 Vue.component('c-popover', Popover)
 Vue.component('c-collapse', Collapse)
 Vue.component('c-collapse-item', CollapseItem)
@@ -280,8 +280,8 @@ new Vue({
       console.log(items);
       this.selected = items
     },
-    yyy() {
-      console.log('yyy');
+    yyy(data) {
+      console.log(data, 'yyy');
     },
     // inputChange(e) {
     //   console.log(e.target.value);
