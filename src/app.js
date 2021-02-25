@@ -264,6 +264,9 @@ new Vue({
     // }, 2000)
   },
   methods: {
+    selectedNav(name) {
+      console.log(name, 'navvvvvv');
+    },
     xs(item, s) {
       this.loading = true
       setTimeout(() => {

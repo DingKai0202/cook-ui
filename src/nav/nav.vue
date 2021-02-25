@@ -1,14 +1,14 @@
 <template>
   <div class="c-nav" :class="{vertical}" ref="nav">
+      {{this.namePath}}
     <slot></slot>
-    {{namePath}}
   </div>
 </template>
 
 <script>
 export default {
-  name: "CookNav",
-  provide () {
+  name: 'CookNav',
+  provide() {
     return {
       root: this,
       vertical: this.vertical
@@ -16,11 +16,8 @@ export default {
   },
   props: {
     selected: {
-      type: String
-    },
-    multiple: {
-      type: Boolean,
-      default: false
+      type: String,
+      default: undefined
     },
     vertical: {
       type: Boolean,
@@ -28,64 +25,49 @@ export default {
     },
     width: {
       type: Number,
-      default: 200
+      default: null
     }
   },
-  data() {
+  data () {
     return {
       items: [],
       namePath: []
     }
   },
   mounted () {
-    this.updateChildren()
+    this.updateChild();
     this.listenToChildren()
     if (this.width) {
       this.$refs.nav.style.width = `${this.width}px`
     }
   },
   updated () {
-    this.listenToChildren()
+    this.updateChild()
   },
-  computed: {
-    
-    // items () {
-    //   return this.$children.filter(vm => vm.$options.name === 'CookNavItem')
-    // }
-  },
-  methods:{
-    enter (el ,done) {
-      let { height } = el.getBoundingClientRect()
-      el.style.height = 0
-      el.getBoundingClientRect()
-      el.style.height = `${height}px`
-      el.addEventListener('transition')
-    },
+//   computed: {
+//     items () {
+//       return this.$children.filter(vm => vm.$options.name === 'CookNavItem')
+//     }
+//   },
+  methods: {
     addItem(vm) {
       this.items.push(vm)
     },
-    updateChildren () {
+    updateChild() {
       this.items.forEach(vm => {
         if (this.selected === vm.name) {
-            vm.selected = true
+          vm.selected = true
         } else {
-            vm.selected = false
+          vm.selected = false
         }
       })
     },
-    listenToChildren () {
+    listenToChildren() {
       this.items.forEach(vm => {
-        if (this.selected === vm.name) {
-            vm.selected = true
-        } else {
-            vm.selected = false
-        }
-        this.items.forEach(vm => {
-            vm.$on('add:selected', (name) => {
-            this.$emit('update:selected', name)
-            })
+        vm.$on('update:selected', (name) => {
+          this.$emit('update:selected', name) 
         })
-      });
+      })
     }
   }
 }

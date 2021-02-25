@@ -1,6 +1,6 @@
 <template>
   <div class="c-sub-nav" :class="{active, vertical}" v-click-outside="close">
-    <span class="c-sub-nav-label" @click="onClick">
+    <span class="c-sub-nav-label" @click="onClick" :class="{labelactive:active}" ref="label">
       <slot name="title"></slot>
       <span class="c-sub-nav-icon c-sub-nav-open" v-if="open">
         <c-icon class="left" name="right"></c-icon>
@@ -52,8 +52,17 @@ export default {
   },
   computed: {
     active () {
-      console.log(this.name);
       return this.root.namePath.indexOf(this.name) >= 0 ? true : false
+    }
+  },
+  updated() {
+    if (this.root.vertical) {
+      if (this.root.namePath.indexOf(this.name) >= 0) {
+        this.$refs.label.style.width = '1000px'
+        this.$refs.label.style.background = '#fff'
+      } else {
+        this.$refs.label.style.background = '#fff'
+      }
     }
   },
   methods: {
@@ -83,6 +92,8 @@ export default {
     },
     onClick () {
       this.open = !this.open
+      console.log(this.root.namePath.indexOf(this.name) >= 0, '你好');
+
     },
     close() {
       this.open = false
@@ -101,8 +112,11 @@ export default {
 
 <style lang="scss" scoped>
   @import "../_var.scss";
-  .c-sub-nav {
+    .c-sub-nav {
     position: relative;
+    &.vertical {
+      overflow: hidden;
+    }
     &:not(.vertical) {
       &.active {
         &.active {
@@ -121,6 +135,9 @@ export default {
       padding: 10px 20px;
       display: inline-block;
       vertical-align: top;
+      &.labelactive {
+        border-bottom: 2px solid #4a90e2;
+      }
     }
 
     &-popover {
@@ -145,7 +162,7 @@ export default {
         overflow: hidden;
         .c-sub-nav {
           .vertical {
-            margin-left: 15px;
+            // margin-left: 15px;
           }
         }
       }
@@ -178,4 +195,85 @@ export default {
       }
     }
   }
+//   .c-sub-nav {
+//     position: relative;
+//     overflow: hidden;
+//     &:not(.vertical) {
+//       &.active {
+//         &.active {
+//           &::after {
+//             content: '';
+//             position: absolute;
+//             bottom: 0;
+//             left: 0;
+//             border-bottom: 2px solid #4a90e2;
+//             width: 100%;
+//           }
+//         }
+//       }
+//     }
+//     &-label {
+//       padding: 10px 20px;
+//       display: inline-block;
+//       vertical-align: top;
+//       &.labelactive {
+//         border-bottom: 2px solid #4a90e2;
+//       }
+//     }
+
+//     &-popover {
+//       position: absolute;
+//       top: 100%;
+//       left: 0;
+//       margin-top: 1px;
+//       white-space: nowrap;
+//       background: white;
+//       box-shadow: 0 0 3px fade-out(black, 0.8);
+//       border-radius: $border-radius;
+//       font-size: $font-size;
+//       color: $light-color;
+//       min-width: 4em;
+//       &.vertical {
+//         position: static;
+//         border-radius: 0;
+//         border: none;
+//         box-shadow: none;
+//         margin-left: 20px;
+//         transition: height 1s;
+//         overflow: hidden;
+//         .c-sub-nav {
+//           .vertical {
+          
+//           }
+//         }
+//       }
+//     }
+//     &-open {
+//       color: #4a90e2;
+//       vertical-align: middle;
+//       margin-left: .2em;
+      
+//       .c-icon {
+//         transform:rotate(90deg);
+//         transition: transform 0.4s;
+//       }
+//     }
+//     &-close {
+//       vertical-align: middle;
+//       margin-left: .2em;
+//       transition: all 0.4s;
+//     }
+//     .c-sub-nav .c-sub-nav-popover {
+//       top: 0;
+//       left: 100%;
+//       margin-left: 4px;
+//       .c-sub-nav-label {
+//         display: flex;
+//         align-items: center;
+//       }
+//       .c-sub-nav-icon {
+//         display: flex;
+//       }
+//     }
+//   }
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <div class="c-nav-item" :class="{selected}" @click="onClick">
+  <div class="c-nav-item" :class="{selected, vertical}" @click="onClick"
+    :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -7,7 +8,7 @@
 <script>
 export default {
   name: 'CookNavItem',
-  inject: ['root'],
+  inject: ['root', 'vertical'],
   props: {
     name: {
       type: String,
@@ -21,12 +22,14 @@ export default {
   },
   created () {
     this.root.addItem(this)
+    // this.eventBus.$emit('add:item', this)
   },
   methods: {
-    onClick() {
+    onClick () {
+        console.log(this.name, '点击');
       this.root.namePath = []
       this.$parent.updateNamePath && this.$parent.updateNamePath()
-      this.$emit('add:selected', this.name)
+      this.$emit('update:selected', this.name)
     }
   }
 }
@@ -37,22 +40,16 @@ export default {
   .c-nav-item {
     padding: 10px 20px;
     position: relative;
-    &:not(.vertical) {
-      &.selected {
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            border-bottom: 2px solid #4a90e2;
-            width: 100%;
-        }
-      }
-    }
-    &.vertical {
-      &.selected {
-        color: #4a90e2;
-        background: $grey;
+    &.selected {
+      color: #4a90e2;
+      background: $grey;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid #4a90e2;
+        width: 100%;
       }
     }
   }
