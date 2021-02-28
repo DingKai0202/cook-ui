@@ -231,7 +231,7 @@ new Vue({
       //   ]
       // }
     ],
-    selected: "home",
+    selected: "woman",
     columns: [
       {text: '姓名', field: 'name', width: 400},
       {text: '分数', field: 'score'}

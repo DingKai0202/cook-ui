@@ -28,6 +28,7 @@ export default {
   },
   created () {
     this.eventBus.$on('update:selected', (name => {
+      console.log(name);
       if (name === this.name) {
         this.active = true
       } else {
@@ -41,7 +42,7 @@ export default {
 <style lang="scss" scoped>
   .tabs-content {
     &.active {
-      background: red;
+      // background: red;
     }
   }
 </style>

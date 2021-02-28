@@ -22,9 +22,7 @@ export default {
   .tabs-head {
     display: flex;
     height: $tab-height;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid red;
+    border-bottom: 1px solid #ddd;
     > .actions-wrapper {
       margin-left: auto;
     }

@@ -24,8 +24,8 @@ export default {
       eventBus: this.eventBus
     }
   },
-  created () {
-    this.$emit('update:selected', this.selected)
+  mounted () {
+    this.eventBus.$emit('update:selected', this.selected)
   }
 }
 </script>
