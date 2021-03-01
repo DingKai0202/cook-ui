@@ -1,6 +1,6 @@
 <template>
   <transition name="show">
-    <div class="tabs-title" @click="onClick" :class="classes">
+    <div class="tabs-title" @click="onClick" :class="classes" :data-name="name">
       <slot></slot>
     </div>
   </transition>
