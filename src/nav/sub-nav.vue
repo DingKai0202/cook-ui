@@ -93,9 +93,9 @@ export default {
     onClick () {
       this.open = !this.open
       console.log(this.root.namePath.indexOf(this.name) >= 0, '你好');
-
     },
     close() {
+      if (this.vertical) return
       this.open = false
     },
     updateNamePath () {
