@@ -49,16 +49,14 @@ export default {
 }
 </script>
 ```
+4. 本地dev启动命令 npm run start, index.html为展示demo页面
+
 
 ## 文档
 
-## 提问
-
-## 变更记录
-
 ## 联系方式
+15910709325
 
-## 贡献代码
 
 
 
