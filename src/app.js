@@ -1,28 +1,25 @@
 import Vue from 'vue'
-import Button from './button.vue'
-import Icon from './icon.vue'
-import ButtonGroup from './button-group.vue'
-import Input from './input.vue'
-import Row from './row.vue'
-import Col from './col.vue'
-import Layout from './layout.vue'
-import Header from './header.vue'
-import Sider from './sider.vue'
-import Content from './content.vue'
-import Footer from './footer.vue'
-import Toast from './toast.vue'
+import Icon from './icon/icon.vue'
+import Button from './button/button.vue'
+import ButtonGroup from './button/button-group.vue'
+import Input from './input/input.vue'
+import Row from './row/row.vue'
+import Col from './row/col.vue'
+import Layout from './layout/layout.vue'
+import Header from './layout/header.vue'
+import Sider from './layout/sider.vue'
+import Content from './layout/content.vue'
+import Footer from './layout/footer.vue'
+import Toast from './toast/toast.vue'
 import plugin from './plugin'
 import Tabs from './tab/tabs.vue'
 import TabsHead from './tab/tabs-head.vue'
 import TabsBody from './tab/tabs-body.vue'
 import TabsContent from './tab/tabs-content.vue'
 import TabsTitle from './tab/tabs-title.vue'
-import Popover from './popover.vue'
-import Collapse from './collapse.vue'
-import CollapseItem from './collapse-item.vue'
-import Cascader from './cascader.vue'
-import Slides from './slides.vue'
-import SlidesItem from './slides-item.vue'
+import Popover from './popover/popover.vue'
+import Collapse from './collapse/collapse.vue'
+import CollapseItem from './collapse/collapse-item.vue'
 import Pager from './pagination/pager.vue'
 import Table from './table/table.vue'
 import Nav from './nav/nav.vue'
@@ -49,9 +46,6 @@ Vue.component('c-tabs-item', TabsTitle)
 Vue.component('c-popover', Popover)
 Vue.component('c-collapse', Collapse)
 Vue.component('c-collapse-item', CollapseItem)
-Vue.component('c-cascader', Cascader)
-Vue.component('c-slides', Slides)
-Vue.component('c-slides-item', SlidesItem)
 Vue.component('c-pager', Pager)
 Vue.component('c-table', Table)
 Vue.component('c-nav', Nav)
@@ -66,171 +60,8 @@ new Vue({
     message: 'hi',
     selectedTab: 'woman',
     currentPage: 1,
-    // selected: ['2'],
+    selectedCollapse: ['2'],
     // selected: [],
-    source: [
-      {
-        name: '浙江',
-        label: '1',
-        children: [
-          {
-            name: '杭州',
-            label: '2',
-            children: [
-              // {name: '上城',label: '3',},
-              // {name: '下城',label: '4',},
-              // {name: '江干',label: '5',}
-            ]
-          },
-          {
-            name: '嘉兴',
-            label: '6',
-            children: [
-              {name: '南湖',label: '7',},
-              {name: '秀洲',label: '8',},
-              {name: '嘉善',label: '9',}
-            ]
-          },
-        ]
-      },
-      {
-        name: '福建',
-        label: '6',
-        children: [
-          {
-            name: '福州',
-            label: '6',
-            children: [
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-            ]
-          },
-        ]
-      },
-            {
-        name: '福建2',
-        label: '1',
-        children: [
-          {
-            name: '福州2',
-            label: '1',
-            children: [
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-              {name: '苍山',label: '1',},
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-              {name: '苍山',label: '1',},
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-              {name: '苍山',label: '1',},
-              {name: '鼓楼',label: '1',},
-              {name: '台江',label: '1',},
-            ]
-          },
-        ]
-      },
-      // {
-      //   name: '浙江',
-      //   children: [
-      //     {
-      //       name: '杭州',
-      //       children: [
-      //         {name: '上城'},
-      //         {name: '下城'},
-      //         {name: '江干'}
-      //       ]
-      //     },
-      //     {
-      //       name: '嘉兴',
-      //       children: [
-      //         {name: '南湖'},
-      //         {name: '秀洲'},
-      //         {name: '嘉善'}
-      //       ]
-      //     },
-      //   ]
-      // },
-      // {
-      //   name: '福建',
-      //   children: [
-      //     {
-      //       name: '福州',
-      //       children: [
-      //         {name: '鼓楼'},
-      //         {name: '台江'},
-      //       ]
-      //     },
-      //   ]
-      // },
-      //       {
-      //   name: '福建2',
-      //   children: [
-      //     {
-      //       name: '福州2',
-      //       children: [
-      //         {name: '鼓楼'},
-      //         {name: '台江'},
-      //         {name: '苍山'},
-      //         {name: '鼓楼'},
-      //         {name: '台江'},
-      //       ]
-      //     },
-      //   ]
-      // },
-      // {
-      //   name: '浙江',
-      //   children: [
-      //     {
-      //       name: '杭州',
-      //       children: [
-      //         {name: '上城'},
-      //         {name: '下城'},
-      //         {name: '江干'}
-      //       ]
-      //     },
-      //     {
-      //       name: '嘉兴',
-      //       children: [
-      //         {name: '南湖'},
-      //         {name: '秀洲'},
-      //         {name: '嘉善'}
-      //       ]
-      //     },
-      //   ]
-      // },
-      // {
-      //   name: '福建',
-      //   children: [
-      //     {
-      //       name: '福州',
-      //       children: [
-      //         {name: '鼓楼'},
-      //         {name: '台江'},
-      //       ]
-      //     },
-      //   ]
-      // },
-      //       {
-      //   name: '福建2',
-      //   children: [
-      //     {
-      //       name: '福州2',
-      //       children: [
-      //         {name: '鼓楼'},
-      //         {name: '台江'},
-      //         {name: '苍山'},
-      //         {name: '鼓楼'},
-      //         {name: '台江'},
-      //       ]
-      //     },
-      //   ]
-      // }
-    ],
     selected: "woman",
     columns: [
       {text: '姓名', field: 'name', width: 400},
@@ -287,7 +118,7 @@ new Vue({
     //   console.log(e.target.value);
     // },
     showToast() {
-      this.$toast("我是toast国库鬼鬼哦豁【铝合金撒大大说按时玩儿翁偶还就弄里扩女女女女女女女女女女女女女女贫困【贫困【贫困【贫困", 
+      this.$toast("我是toast的内容，你好啊", 
       {
         
         closeButton: {
@@ -298,7 +129,7 @@ new Vue({
           }
         },
         position: 'middle',
-        autoClose: 5,
+        autoClose: true,
       })
     },
     xx(object) {
@@ -308,95 +139,3 @@ new Vue({
     }
   }
 })
-
-
-
-// import chai from 'chai'
-// import spies from 'chai-spies'
-// chai.use(spies)
-
-// //单元测试
-// {
-//   const Constructor = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData: {
-//       icon: 'settings'
-//     }
-//   })
-//   button.$mount('#test')
-//   let useElement = button.$el.querySelector('use')
-//   let href = useElement.getAttribute('xlink:href')
-//   expect(href).to.eq('#i-settings')
-//   vm.$el.remove()
-//   vm.$destory()
-// }
-
-// {
-//   const Constructor = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData: {
-//       icon: 'settings',
-//       loading: true
-//     }
-//   })
-//   vm.$mount()
-//   let useElement = button.$el.querySelector('use')
-//   let href = useElement.getAttribute('xlink:href')
-//   expect(href).to.eq('#i-loading')
-//   vm.$el.remove()
-//   vm.$destory()
-// }
-
-// {
-//   const div = document.createElement('div')
-//   document.body.appendChild(div)
-//   const Constructor = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData: {
-//       icon: 'settings'
-//     }
-//   })
-//   vm.$mount(div)
-//   let svg = button.$el.querySelector('svg')
-//   let { order } = window.getComputedStyle(svg)
-//   expect(order).to.eq("1")
-//   vm.$el.remove()
-//   vm.$destory()
-// }
-
-// {
-//   const div = document.createElement('div')
-//   document.body.appendChild(div)
-//   const Constructor = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData: {
-//       icon: 'settings',
-//       iconPosition: 'right'
-//     }
-//   })
-//   vm.$mount(div)
-//   let svg = button.$el.querySelector('svg')
-//   let { order } = window.getComputedStyle(svg)
-//   expect(order).to.eq("2")
-//   vm.$el.remove()
-//   vm.$destory()
-// }
-
-// {
-//   const Constructor = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData: {
-//       icon: 'settings',
-//       iconPosition: 'right'
-//     }
-//   })
-//   vm.$mount()
-//   let spy = chai.spy(function() {
-    
-//   })
-
-//   vm.$on('click', spy)
-//   let button = cButton.$el
-//   button.click()
-//   expect(spy).to.have.been.called()
-// }

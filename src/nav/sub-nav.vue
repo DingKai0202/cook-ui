@@ -29,7 +29,7 @@
 
 <script>
 import ClickOutside from '../click-outside'
-import CIcon from '../icon'
+import CIcon from '../icon/icon'
 export default {
   name: 'CookSubNav',
   directives: {

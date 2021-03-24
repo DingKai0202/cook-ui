@@ -33,121 +33,67 @@
 <body>
 <style>
   .demo{
-    background: #ddd;
-    border: 1px solid red;
+    /* background: #ddd; */
+    border: 1px solid #ddd;
     height: 50px;
   }
 </style>
 <div id="app">
-<!--   
   <c-layout style="height: 100vh;">
     <c-sider class="d">Sider</c-sider>
     <c-layout>
-        <c-header class="demo">Header</c-header>
-                <c-popover>
-                  <template slot="content">
-                    <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
-                  </template>
-                  <c-button>点我</c-button>
-                </c-popover >
-                <c-popover position="bottom" trigger="hover">
-                  <template slot="content">
-                    <div>popover内容</div>
-                  </template>
-                  <button>点我</button>
-                </c-popover>
-                <c-popover position="left">
-                  <template slot="content">
-                    <div>popover内容</div>
-                  </template>
-                  <button>点我</button>
-                </c-popover>
-                <c-popover position="right" trigger="hover">
-                  <template slot="content">
-                    <div>popover内容</div>
-                  </template>
-                  <button>点我</button>
-                </c-popover>
+      <c-header class="demo">Header</c-header>
+        <c-popover position="bottom" trigger="hover">
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <c-button>点击Popover下</c-button>
+        </c-popover>
+        <c-popover position="left">
+            <template slot="content">
+              <div>popover内容</div>
+            </template>
+          <c-button>点击Popover左</c-button>
+        </c-popover>
+        <c-popover>
+          <template slot="content">
+            <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打</div>
+          </template>
+          <c-button>点击Popover上</c-button>
+        </c-popover >
+        <c-popover position="right" trigger="hover">
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <c-button>点击Popover右</c-button>
+        </c-popover>
+        <c-popover >
+          <template slot="content" slot-scope="{close}">
+            <div>popover内容嵌套关闭按钮</div>
+            <c-button @click="close">关闭</c-button>
+          </template>
+          <c-button>点击Popover关闭</c-button>
+        </c-popover>
         <c-content class="demo">Content
           <c-row gutter="10">
-            <c-col span="2">dasd</c-col>
-            <c-col span="4">dasd</c-col>
-            <c-col span="6">dasd</c-col>
-            <c-col span="2">dasd</c-col>
-            <c-col span="4">dasd</c-col>
-            <c-col span="6">dasd</c-col>
-          </c-row>
-          
-            
-          
-          <button @click="showToast()">Show Toast</button>
-          
-          <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
-            <c-tabs-head>
-              <template slot="actions">
-                <button>设置</button>
-              </template>
-              <c-tabs-item name="woman">
-                <c-icon name="settings"></c-icon>
-                美女
-              </c-tabs-item>
-              <c-tabs-item name="sport">
-                体育
-              </c-tabs-item>
-              <c-tabs-item name="finance">
-                财经
-              </c-tabs-item>
-            </c-tabs-head>
-            <c-tabs-body>
-              <c-tabs-pane name="woman">
-                美女咨询内容
-              </c-tabs-pane>
-              <c-tabs-pane name="sport">
-                体育资讯内容
-
-              </c-tabs-pane>
-              <c-tabs-pane name="finance">
-                财经资讯内容 
-              </c-tabs-pane>
-            </c-tabs-body>
-          </c-tabs>
-          
+            <c-col span="2">Col</c-col>
+            <c-col span="4">Col</c-col>
+            <c-col span="6">Col</c-col>
+            <c-col span="2">Col</c-col>
+            <c-col span="4">Col</c-col>
+            <c-col span="6">Col</c-cc->
+          </c-row>        
+          <c-button @click="showToast()">Show Toast</c-button>
         </c-content>
         <c-footer class="demo">Footer</c-footer>
     </c-layout>
-  </c-layout> -->
-  <!-- <c-popover >
-                  <template slot="content" slot-scope="{close}">
-                    <div>popover内容大叔大婶多按时阿萨德阿萨德阿萨德打算sad</div>
-                    <c-button @click="close">关闭</c-button>
-                  </template>
-                  <c-button>点我</c-button>
-                </c-popover>
-                <c-popover position="right" trigger="hover">
-                  <template slot="content">
-                    <div>popover内容</div>
-                  </template>
-                  <button>点我</button>
-                </c-popover> -->
-  <!-- <c-collapse :selected.sync="selected">
+  </c-layout>
+  <c-collapse :selected.sync="selectedCollapse">
     <c-collapse-item title="标题1" name="1">内容1</c-collapse-item>
     <c-collapse-item title="标题2" name="2">内容2</c-collapse-item>
     <c-collapse-item title="标题3" name="3">内容3</c-collapse-item>
     {{selected}}
-  </c-collapse> -->
-  <!-- <c-cascader :source="source" @update:selected = "selectedItem"></c-cascader> -->
-  <!-- <c-slides :selected.sync="selected">
-    <c-slides-item  name="1">
-      <div class="box">1</div>
-    </c-slides-item>
-    <c-slides-item  name="2">
-      <div class="box">2</div>
-    </c-slides-item>
-    <c-slides-item  name="3">
-      <div class="box">3</div>
-    </c-slides-item>
-  </c-slides> -->
-  <!-- <p>{{selected}}</p> -->
+  </c-collapse>
   <div>
     <c-tabs :selected.sync="selectedTab" @update:selected="yyy">
       <c-tabs-head>
@@ -180,34 +126,33 @@
   </div>
   <div>
     <c-nav :selected.sync="selected" :vertical="true" style="width:200px">
-        <c-nav-item name="home">首页</c-nav-item>
-        <c-sub-nav name="about">
-          <template slot="title">关于</template>
-          <c-nav-item name="culture">企业文化</c-nav-item>
-          <c-nav-item name="developers">开发团队</c-nav-item>
-          <c-sub-nav name="lianxi">
-            <template slot="title">联系方式</template>
-            <c-nav-item name="wechatculture">微信</c-nav-item>
-            <c-nav-item name="qq">QQ</c-nav-item>
-            <c-sub-nav name="mobile">
+      <c-nav-item name="home">首页</c-nav-item>
+      <c-sub-nav name="about">
+        <template slot="title">关于</template>
+        <c-nav-item name="culture">企业文化</c-nav-item>
+        <c-nav-item name="developers">开发团队</c-nav-item>
+        <c-sub-nav name="lianxi">
+          <template slot="title">联系方式</template>
+          <c-nav-item name="wechatculture">微信</c-nav-item>
+          <c-nav-item name="qq">QQ</c-nav-item>
+          <c-sub-nav name="mobile">
+            <template slot="title">手机</template>
+            <c-nav-item name="cm">移动</c-nav-item>
+            <c-nav-item name="cu">联通</c-nav-item>
+            <c-nav-item name="cn">电信</c-nav-item>
+            <c-sub-nav name="mobiles">
               <template slot="title">手机</template>
-              <c-nav-item name="cm">移动</c-nav-item>
-              <c-nav-item name="cu">联通</c-nav-item>
-              <c-nav-item name="cn">电信</c-nav-item>
-              <c-sub-nav name="mobiles">
-                <template slot="title">手机</template>
-                <c-nav-item name="cms">移动</c-nav-item>
-                <c-nav-item name="cus">联通</c-nav-item>
-                <c-nav-item name="cnaa">电信</c-nav-item>
-              </c-sub-nav>
+              <c-nav-item name="cms">移动</c-nav-item>
+              <c-nav-item name="cus">联通</c-nav-item>
+              <c-nav-item name="cnaa">电信</c-nav-item>
             </c-sub-nav>
           </c-sub-nav>
         </c-sub-nav>
-        <c-nav-item name="hire">招聘</c-nav-item>
-      </c-nav>
+      </c-sub-nav>
+      <c-nav-item name="hire">招聘</c-nav-item>
+    </c-nav>
   </div>
-  <!-- <div>
-    {{selectedTable}}
+  <div>
     <div style="margin: 20px;">
       <c-table 
         :columns="columns" 
@@ -225,7 +170,7 @@
       </c-table>
     </div>
     <c-pager :total-page="14" :current-page.sync="currentPage"></c-pager>
-  </div> -->
+  </div>
 </div>
 
 <script src="./src/app.js"></script>

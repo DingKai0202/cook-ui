@@ -52,7 +52,6 @@
               </td>
             </tr>
           </template>
-
         </tbody>
       </table>
     </div>
@@ -63,7 +62,7 @@
 </template>
 
 <script>
-import CIcon from '../icon'
+import CIcon from '../icon/icon'
 export default {
   name: "CookTable",
   components: {

@@ -1,14 +1,12 @@
 <template>
   <div class="wrapper" ref="wrapper" :class="toastClasses">
     <div class="toast" ref="toast">
-      <!-- <slot></slot> -->
+      <slot></slot>
       <div class="line" ref="line"></div>
       <span class="close" v-if="closeButton" @click="onClickClose">
         {{closeButton.text}}
       </span>
     </div>
-    
-
   </div>
 </template>
 
@@ -47,9 +45,6 @@ export default {
       }
     }
   },
-  created () {
-    console.log(this.closeButton, "btn")
-  },
   mounted () {
     this.updateStyles()
     this.execAutoClose()
@@ -65,7 +60,7 @@ export default {
     updateStyles () {
       this.$nextTick(() => {
         this.$refs.line.style.height = 
-          `${this.$refs.wrapper.getBoundingClientRect().height}px`
+          `${this.$refs.toast.getBoundingClientRect().height}px`
       })
     },
     execAutoClose (){
@@ -101,10 +96,12 @@ export default {
       line-height: 1.8;
       position: fixed;
       top: 10px;
-      left: 50%;
-      display: flex;
       color: white;
+      display: flex;
+      left: 50%;
+      transform: translateX(-50%);
       align-items: center;
+      justify-content: center;
       background: $toast-bg;
       border-radius: 4px;
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -130,8 +127,5 @@ export default {
         border-left: 1px solid #666;
         margin-left: 16px;
       }
-
   }
-
-
 </style>

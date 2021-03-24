@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import CIcon from '../icon'
+import CIcon from '../icon/icon'
 export default {
   name: "CookPager",
   components: {
